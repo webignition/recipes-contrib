@@ -1,0 +1,9 @@
+{
+    "aliases": [],
+    "recipes": [],
+    "versions": [],
+    "git_url": "https://github.com/symfony/recipes-contrib.git",
+    "tree_template": "https://github.com/symfony/recipes-contrib/tree/{tree}/{package}/{version}",
+    "recipe_template": "https://raw.githubusercontent.com/symfony/recipes-contrib/flex/pull-1283/{package_dotted}.{version}.json",
+    "is_contrib": true
+}
