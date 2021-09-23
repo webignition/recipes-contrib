@@ -1,0 +1,19 @@
+{
+    "aliases": [],
+    "recipes": {
+        "fd6130/exabytes-sms-bundle": [
+            "1.0"
+        ],
+        "fd6130/hsl-bundle": [
+            "1.0"
+        ]
+    },
+    "versions": [],
+    "branch": "master",
+    "is_contrib": true,
+    "_links": {
+        "repository": "github.com/symfony/recipes-contrib",
+        "origin_template": "{package}:{version}@github.com/symfony/recipes-contrib:master",
+        "recipe_template": "https://api.github.com/repos/symfony/recipes-contrib/contents/{package_dotted}.{version}.json?ref=flex/pull-1285"
+    }
+}

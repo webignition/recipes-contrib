@@ -1,0 +1,28 @@
+{
+    "manifests": {
+        "fd6130/hsl-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Fd\\HslBundle\\FdHslBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%"
+                }
+            },
+            "files": {
+                "config/packages/fd_hsl.yaml": {
+                    "contents": [
+                        "fd_hsl:",
+                        "    paginator:",
+                        "        default_limit: 30",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "ce504efc999f5bcbeae61200375a69ba99e350a9"
+        }
+    }
+}
