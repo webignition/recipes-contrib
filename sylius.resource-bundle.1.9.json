@@ -1,0 +1,51 @@
+{
+    "manifests": {
+        "sylius/resource-bundle": {
+            "manifest": {
+                "container": {
+                    "locale": "en"
+                },
+                "bundles": {
+                    "Sylius\\Bundle\\ResourceBundle\\SyliusResourceBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/sylius_resource.yaml": {
+                    "contents": [
+                        "# @see https://github.com/Sylius/SyliusResourceBundle/blob/master/docs/index.md",
+                        "sylius_resource:",
+                        "    # Override default settings",
+                        "    #settings:",
+                        "",
+                        "    # Configure your resources",
+                        "    resources:",
+                        "        #app.book:",
+                        "            #classes:",
+                        "                #model: App\\Entity\\Book",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_resource.yaml": {
+                    "contents": [
+                        "sylius_crud_routes:",
+                        "    resource: 'sylius.routing.loader.crud_routes_attributes'",
+                        "    type: service",
+                        "",
+                        "sylius_routes:",
+                        "    resource: 'sylius.routing.loader.routes_attributes'",
+                        "    type: service",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "5ca8e742a7dc43c924b1a6c4505b48d094bf8b3a"
+        }
+    }
+}
