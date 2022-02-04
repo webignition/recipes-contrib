@@ -1,0 +1,107 @@
+{
+    "manifests": {
+        "coka/oka_notifier_server": {
+            "manifest": {
+                "bundles": {
+                    "Oka\\Notifier\\ServerBundle\\OkaNotifierServerBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "src/": "%SRC_DIR%/"
+                },
+                "env": {
+                    "NOTIFIER_SMPP_DSN": "smpp://user:password@127.0.0.1:8775",
+                    "NOTIFIER_CLICKATELL_URL": "https://api.clickatell.com",
+                    "NOTIFIER_CLICKATELL_API_TOKEN": "s$cretf0rt3st",
+                    "NOTIFIER_INFOBIP_URL": "https://api.infobip.com",
+                    "NOTIFIER_INFOBIP_API_KEY": "s$cretf0rt3st",
+                    "NOTIFIER_WIREPICK_CLIENT_ID": "client",
+                    "NOTIFIER_WIREPICK_PASSWORD": "s$cretf0rt3st"
+                }
+            },
+            "files": {
+                "config/packages/oka_notifier_server.yaml": {
+                    "contents": [
+                        "oka_notifier_server:",
+                        "    channels:",
+                        "        # Uncommented here if you want to enable specific channel",
+                        "#        email:",
+                        "#            enabled: true",
+                        "#        sms:",
+                        "#            enabled: true",
+                        "#        smpp:",
+                        "#            dsn: '%env(resolve:NOTIFIER_SMPP_DSN)%'",
+                        "#        clickatell:",
+                        "#            url: '%env(resolve:NOTIFIER_CLICKATELL_URL)%'",
+                        "#            token: '%env(NOTIFIER_CLICKATELL_API_TOKEN)%'",
+                        "#        infobip:",
+                        "#            url: '%env(resolve:NOTIFIER_INFOBIP_URL)%'",
+                        "#            api_key: '%env(NOTIFIER_INFOBIP_API_KEY)%'",
+                        "#        wirepick:",
+                        "#            client_id: '%env(NOTIFIER_WIREPICK_CLIENT_ID)%'",
+                        "#            password: '%env(NOTIFIER_WIREPICK_PASSWORD)%'",
+                        "#        firebase:",
+                        "#            enabled: true",
+                        "",
+                        "    # Uncommented here if you want to enable reporting",
+                        "#    reporting:",
+                        "#        db_driver: mongodb",
+                        "#        class_name: App\\Document\\SendReport",
+                        "",
+                        "# Fix doctrine ODM mappings",
+                        "#doctrine_mongodb:",
+                        "#    document_managers:",
+                        "#        default:",
+                        "#            mappings:",
+                        "#                OkaNotifierServerBundle:",
+                        "#                    type: xml",
+                        "#                    dir: '%kernel.project_dir%/vendor/coka/notifier-server-bundle/config/doctrine'",
+                        "#                    prefix: 'Oka\\Notifier\\ServerBundle\\Model'",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/notifier.yaml": {
+                    "contents": [
+                        "oka_notifier_server_notification:",
+                        "    resource: \"@OkaNotifierServerBundle/config/routes/notification.yaml\"",
+                        "",
+                        "# Uncommented here if you want to enable reporting ",
+                        "#oka_notifier_server_reporting:",
+                        "#    resource: \"@OkaNotifierServerBundle/config/routes/reporting.yaml\"",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/Document/SendReport.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "namespace App\\Document;",
+                        "",
+                        "use Doctrine\\ODM\\MongoDB\\Mapping\\Annotations as MongoDB;",
+                        "use Oka\\Notifier\\ServerBundle\\Model\\SendReport as BaseSendReport;",
+                        "",
+                        "/**",
+                        " * @MongoDB\\Document(collection=\"send_report\")",
+                        " */",
+                        "class SendReport extends BaseSendReport",
+                        "{",
+                        "    /**",
+                        "     * @MongoDB\\Id()",
+                        "     *",
+                        "     * @var string",
+                        "     */",
+                        "    protected $id;",
+                        "}",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "d16d4a4750e8bd89a29665725541133511c31b8d"
+        }
+    }
+}
