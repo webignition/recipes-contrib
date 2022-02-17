@@ -1,0 +1,28 @@
+{
+    "aliases": [],
+    "recipes": {
+        "doctrine/mongodb-odm-bundle": [
+            "3.3",
+            "4.1"
+        ]
+    },
+    "recipe-conflicts": {
+        "doctrine/mongodb-odm-bundle": {
+            "4.1": {
+                "doctrine/cache": "<1.11",
+                "symfony/framework-bundle": "<5.3"
+            }
+        }
+    },
+    "versions": [],
+    "branch": "master",
+    "is_contrib": true,
+    "_links": {
+        "repository": "github.com/symfony/recipes-contrib",
+        "origin_template": "{package}:{version}@github.com/symfony/recipes-contrib:master",
+        "recipe_template": "https://raw.githubusercontent.com/symfony/recipes-contrib/flex/pull-1358/{package_dotted}.{version}.json",
+        "recipe_template_relative": "{package_dotted}.{version}.json",
+        "archived_recipes_template": "https://raw.githubusercontent.com/symfony/recipes-contrib/flex/pull-1358/archived/{package_dotted}/{ref}.json",
+        "archived_recipes_template_relative": "archived/{package_dotted}/{ref}.json"
+    }
+}
