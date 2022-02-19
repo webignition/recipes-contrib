@@ -1,0 +1,32 @@
+{
+    "manifests": {
+        "viduc/casbundle": {
+            "manifest": {
+                "bundles": {
+                    "Viduc\\CasBundle\\CasBundle": [
+                        "all"
+                    ]
+                },
+                "env": {
+                    "CAS_HOST": "monserveurcas.fr",
+                    "CAS_PORT": "443"
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/cas.yaml": {
+                    "contents": [
+                        "cas:",
+                        "    host: '%env(CAS_HOST)%'",
+                        "    port: '%env(CAS_PORT)'",
+                        ""
+                    ],
+                    "executable": true
+                }
+            },
+            "ref": "3b5fc142db5df80173fdd7e4098b2f367361bd09"
+        }
+    }
+}
