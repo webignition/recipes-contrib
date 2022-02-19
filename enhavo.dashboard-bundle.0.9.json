@@ -1,0 +1,56 @@
+{
+    "manifests": {
+        "enhavo/dashboard-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Enhavo\\Bundle\\DashboardBundle\\EnhavoDashboardBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "assets/": "assets/"
+                },
+                "post-install-output": [
+                    "<bg=blue;fg=white>                                                   </>",
+                    "<bg=blue;fg=white>  Complete EnhavoDashboardBundle installation ...  </>",
+                    "<bg=blue;fg=white>                                                   </>",
+                    "",
+                    "  * Update your <fg=green>packages.json</>",
+                    "",
+                    "      <fg=green>$ yarn add @enhavo/dashboard</>",
+                    "",
+                    "  * Build your assets with",
+                    "",
+                    "      <fg=green>$ yarn encore dev</>",
+                    "      <fg=green>$ yarn routes:dump</>",
+                    "",
+                    "<fg=green>  Read more details about the steps:</>",
+                    "<fg=blue>  https://docs.enhavo.com/book/dashboard-bundle/installation.html</>"
+                ]
+            },
+            "files": {
+                "assets/services/enhavo/enhavo_dashboard.yaml": {
+                    "contents": [
+                        "imports:",
+                        "    -",
+                        "        path: '@enhavo/dashboard/services/*'",
+                        "",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/enhavo_dashboard.yaml": {
+                    "contents": [
+                        "enhavo_dashboard_admin:",
+                        "    resource: \"@EnhavoDashboardBundle/Resources/config/routes/admin/*\"",
+                        "    prefix: /admin",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "fa4ebd75c4deef331a14fb8d1c36b0f5ddbad1df"
+        }
+    }
+}

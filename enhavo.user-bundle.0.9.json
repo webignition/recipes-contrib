@@ -1,0 +1,61 @@
+{
+    "manifests": {
+        "enhavo/user-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Enhavo\\Bundle\\UserBundle\\EnhavoUserBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "assets/": "assets/"
+                },
+                "post-install-output": [
+                    "<bg=blue;fg=white>                                              </>",
+                    "<bg=blue;fg=white>  Complete EnhavoUserBundle installation ...  </>",
+                    "<bg=blue;fg=white>                                              </>",
+                    "",
+                    "  * Update your <fg=green>packages.json</>",
+                    "",
+                    "      <fg=green>$ yarn add @enhavo/user</>",
+                    "",
+                    "  * Migrate database",
+                    "  * Build your assets with",
+                    "",
+                    "      <fg=green>$ yarn encore dev</>",
+                    "      <fg=green>$ yarn routes:dump</>",
+                    "",
+                    "<fg=green>  Read more details about the steps:</>",
+                    "<fg=blue>  https://docs.enhavo.com/book/user-bundle/installation.html</>"
+                ]
+            },
+            "files": {
+                "assets/services/enhavo/enhavo_user.yaml": {
+                    "contents": [
+                        "imports:",
+                        "    -",
+                        "        path: '@enhavo/user/services/*'",
+                        "",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/enhavo_user.yaml": {
+                    "contents": [
+                        "enhavo_user_admin:",
+                        "    resource: \"@EnhavoUserBundle/Resources/config/routes/admin/*\"",
+                        "    prefix: /admin",
+                        "",
+                        "enhavo_user_user:",
+                        "    resource: \"@EnhavoUserBundle/Resources/config/routes/user/*\"",
+                        "    prefix: /user",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "d15b28dcbe76f121752b79ec333282c31ccda1e8"
+        }
+    }
+}

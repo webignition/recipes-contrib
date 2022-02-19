@@ -1,0 +1,61 @@
+{
+    "manifests": {
+        "enhavo/media-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Enhavo\\Bundle\\MediaBundle\\EnhavoMediaBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "assets/": "assets/"
+                },
+                "post-install-output": [
+                    "<bg=blue;fg=white>                                               </>",
+                    "<bg=blue;fg=white>  Complete EnhavoMediaBundle installation ...  </>",
+                    "<bg=blue;fg=white>                                               </>",
+                    "",
+                    "  * Update your <fg=green>packages.json</>",
+                    "",
+                    "      <fg=green>$ yarn add @enhavo/media</>",
+                    "",
+                    "  * Migrate database",
+                    "  * Build your assets with",
+                    "",
+                    "      <fg=green>$ yarn encore dev</>",
+                    "      <fg=green>$ yarn routes:dump</>",
+                    "",
+                    "<fg=green>  Read more details about the steps:</>",
+                    "<fg=blue>  https://docs.enhavo.com/book/media-bundle/installation.html</>"
+                ]
+            },
+            "files": {
+                "assets/services/enhavo/enhavo_media.yaml": {
+                    "contents": [
+                        "imports:",
+                        "    -",
+                        "        path: '@enhavo/media/services/*'",
+                        "",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/enhavo_media.yaml": {
+                    "contents": [
+                        "enhavo_media_admin:",
+                        "    resource: \"@EnhavoMediaBundle/Resources/config/routes/admin/*\"",
+                        "    prefix: /admin",
+                        "",
+                        "enhavo_media_theme:",
+                        "    resource: \"@EnhavoMediaBundle/Resources/config/routes/theme/*\"",
+                        "    prefix: /",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "ff1fee2a678959043b65a045f6803586a951ec31"
+        }
+    }
+}
