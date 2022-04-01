@@ -1,0 +1,20 @@
+{
+    "aliases": [],
+    "recipes": {
+        "datana-gmbh/logz-io-handler": [
+            "1.0"
+        ]
+    },
+    "recipe-conflicts": [],
+    "versions": [],
+    "branch": "master",
+    "is_contrib": true,
+    "_links": {
+        "repository": "github.com/symfony/recipes-contrib",
+        "origin_template": "{package}:{version}@github.com/symfony/recipes-contrib:master",
+        "recipe_template": "https://raw.githubusercontent.com/symfony/recipes-contrib/flex/pull-1382/{package_dotted}.{version}.json",
+        "recipe_template_relative": "{package_dotted}.{version}.json",
+        "archived_recipes_template": "https://raw.githubusercontent.com/symfony/recipes-contrib/flex/pull-1382/archived/{package_dotted}/{ref}.json",
+        "archived_recipes_template_relative": "archived/{package_dotted}/{ref}.json"
+    }
+}
