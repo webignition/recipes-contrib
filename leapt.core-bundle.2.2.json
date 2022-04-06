@@ -1,0 +1,43 @@
+{
+    "manifests": {
+        "leapt/core-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Leapt\\CoreBundle\\LeaptCoreBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "gitignore": [
+                    "/public/uploads/"
+                ]
+            },
+            "files": {
+                "config/packages/leapt_core.yaml": {
+                    "contents": [
+                        "# Read the documentation: https://core-bundle.leapt.dev/configuration_reference/",
+                        "leapt_core:",
+                        "    upload_dir: '%kernel.project_dir%/public'",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/leapt_core.yaml": {
+                    "contents": [
+                        "leapt_core_feed:",
+                        "    resource: '@LeaptCoreBundle/Resources/config/routing_feed.yml'",
+                        "    prefix: /feed",
+                        "",
+                        "leapt_core_sitemap:",
+                        "    resource: '@LeaptCoreBundle/Resources/config/routing_sitemap.yml'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "321601b28b24808b7111abd094dded61af9b829a"
+        }
+    }
+}
